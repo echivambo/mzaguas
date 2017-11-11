@@ -25,7 +25,7 @@ class CreateFaturasTable extends Migration
             $table->integer('taxa_id')->references('id')->on('taxa_por_metros');
              $table->double('multa');
                $table->boolean('status')->default(1);
-            $table->timestamps();
+            $table->timestamps('data_reg');
 
 
 
