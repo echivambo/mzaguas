@@ -22,7 +22,7 @@ class CreatePagamentosTable extends Migration
             $table->string('tipo_pagamento');
             $table->double('valor');
              $table->string('nr_comprovativo');
-            $table->timestamps('data_reg');
+            $table->timestamps();
         
 
         });
