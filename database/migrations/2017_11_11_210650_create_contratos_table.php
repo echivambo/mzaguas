@@ -22,8 +22,6 @@ class CreateContratosTable extends Migration
             $table->integer('cliente_id')->references('id')->on('clientes');
             $table->integer('user_id')->references('id')->on('users');
             $table->timestamps();
-
-        
         });
     }
 

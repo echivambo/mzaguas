@@ -53,6 +53,19 @@ class FontenariaController extends Controller
             return redirect()->back();
     }
 
+    public function regPrimeira(Request $request)
+    {
+        $dataForm = $request->all();
+        $insert = $this->fontenaria->create($dataForm);
+
+        $last_id = $insert->id;
+
+        if($insert)
+            return redirect()->route('register', compact('last_id'));
+        else
+            return redirect()->back();
+    }
+
     /**
      * Display the specified resource.
      *

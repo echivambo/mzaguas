@@ -12,7 +12,7 @@ class Distrito extends Model
      * @var array
      */
     protected $fillable = [
-        'nome','provincia_id','user_id'
+        'nome','provincia','user_id'
     ];
 
     /**

@@ -20,10 +20,10 @@ class CreateClientesTable extends Migration
             $table->string('email',45)->unique();
             $table->string('tel1',15);
             $table->string('tel2',15);
-            $table->boolean('status')->default(1);
             $table->double('saldo')->default(0);
-            $table->timestamps();
+            $table->boolean('status')->default(1);
             $table->integer('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

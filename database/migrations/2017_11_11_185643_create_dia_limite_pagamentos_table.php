@@ -15,7 +15,7 @@ class CreateDiaLimitePagamentosTable extends Migration
     {
         Schema::create('dia_limite_pagamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('data');
+            $table->integer('dia');
             $table->boolean('status')->default(1);
             $table->integer('user_id')->references('id')->on('users');
             $table->timestamps();

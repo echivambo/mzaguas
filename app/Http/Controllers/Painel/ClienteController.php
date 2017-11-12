@@ -48,7 +48,7 @@ class ClienteController extends Controller
 
 
         if($insert)
-            return redirect()->route('cliente.index');
+            return redirect()->route('cliente.index')->with('message', 'Cliente salvo com sucesso');
         else
             return redirect()->back();
 

@@ -21,8 +21,9 @@ class CreateFontenariasTable extends Migration
             $table->string('tel1',15);
             $table->string('tel2',15);
             $table->boolean('status')->default(1);
-            $table->timestamps();
             $table->integer('empresa_id')->references('id')->on('empresa');
+            $table->integer('distrito_id')->references('id')->on('distritos');
+            $table->timestamps();
         });
     }
 

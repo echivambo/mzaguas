@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TaxaPorMetroRequest extends FormRequest
+class DistritoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,9 @@ class TaxaPorMetroRequest extends FormRequest
     public function rules()
     {
         return [
-            'taxa'=>'required',
-            'descricao'=>'max:100',
+            'nome'=>'required|min:3|max:60',
+            'provincia'=>'required|min:4|max:15',
+            'user_id'=>'required|integer|min:1'
         ];
     }
 }

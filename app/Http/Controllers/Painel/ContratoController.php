@@ -48,7 +48,7 @@ class ContratoController extends Controller
 
 
         if($insert)
-            return redirect()->route('contrato.index');
+            return redirect()->route('contrato.index')->with('message', 'Novo contrato salvo com sucesso');
         else
             return redirect()->back();
 

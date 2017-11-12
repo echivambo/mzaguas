@@ -16,7 +16,7 @@ class CreateDistritosTable extends Migration
         Schema::create('distritos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome',60);
-            $table->integer('provincia_id')->references('id')->on('provincias');
+            $table->string('provincia',15);
             $table->boolean('status')->default(1);
             $table->timestamps();
             $table->integer('user_id')->references('id')->on('users');

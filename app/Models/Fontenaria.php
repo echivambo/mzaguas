@@ -15,7 +15,7 @@ class Fontenaria extends Model
      * @var array
      */
     protected $fillable = [
-        'nome','endereco', 'email', 'tel1', 'tel2','empresa_id'
+        'nome','endereco', 'email', 'tel1', 'tel2','empresa_id','distrito_id'
     ];
 
     /**

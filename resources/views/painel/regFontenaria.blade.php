@@ -8,7 +8,7 @@
                 <div class="panel-heading">Registar Fontenária</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('fontenaria.store') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('fontenaria.regPrimeira') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">

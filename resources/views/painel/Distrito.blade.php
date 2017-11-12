@@ -4,14 +4,19 @@
 <div class="content">
 
 <div id="content-header">
-    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Clientes</a></div>
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Painel</a> <a
+                href="#">Parametrização</a> <a href="#">Dustito</a></div>
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="span12">
+
+            <!--Mensagens-->
+            @include('layouts.mensagens.msg')
+
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-                    <h5>Registar Provincias</h5>
+                    <h5>Registar distritos</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('distrito.store')}}">
@@ -21,7 +26,20 @@
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
 
-                        <div class="control-group {{ $errors->has('nome') ? ' has-error' : '' }}">
+                        <div class="control-group">
+                            <label for="provincia_id" class=" control-label">Provincia</label>
+
+                            <div class="controls">
+                                <select name="provincia_id" id="provincia_id" required class="span4">
+                                    <option>Selecione a provincia</option>
+                                    @foreach($provincias as $provincia)
+                                      <option value="{{$provincia}}">{{$provincia}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
                             <label for="nome" class=" control-label">Nome</label>
 
                             <div class="controls">
@@ -51,7 +69,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($provincias as $ob)
+                        @foreach($distritos as $ob)
                             <tr>
                                 <td>{{$ob->nome}}</td>
                                 <td width="50">

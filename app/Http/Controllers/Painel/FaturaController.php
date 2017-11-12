@@ -2,19 +2,11 @@
 
 namespace App\Http\Controllers\Painel;
 
-use App\Http\Requests\DistritoRequest;
-use App\Models\Distrito;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DistritoController extends Controller
+class FaturaController extends Controller
 {
-    private $distrito;
-    public function __construct(Distrito $distrito)
-    {
-        $this->distrito=$distrito;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +14,7 @@ class DistritoController extends Controller
      */
     public function index()
     {
-        $distritos = $this->distrito->all();
-        $provincias = ['Maputo Provincia', 'Maputo Cidade','Gaza','Inhambane','Sofala','Zambézia','Nampula','Niassa','Manica','Tete','Cabo Delgado'];
-        return view('painel.distrito', compact('distritos','provincias'));
+        //
     }
 
     /**
@@ -34,7 +24,7 @@ class DistritoController extends Controller
      */
     public function create()
     {
-        //return view('painel.distrito');
+        //
     }
 
     /**
@@ -43,10 +33,9 @@ class DistritoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DistritoRequest $request)
+    public function store(Request $request)
     {
-        distritoPorMetro::create($request->all());
-        return redirect()->route('distrito.index')->with('message', 'Distrito salvo com sucesso');
+        //
     }
 
     /**

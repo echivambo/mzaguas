@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers\Painel;
 
-use App\Models\Provincia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProvinciaController extends Controller
+class userController extends Controller
 {
-    private $provincia;
-    public function __construct(Provincia $provincia)
-    {
-        $this->provincia=$provincia;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +14,7 @@ class ProvinciaController extends Controller
      */
     public function index()
     {
-        $provincias = $this->provincia->all();
-        return view('painel.provincia', compact('provincias'));
+        //
     }
 
     /**
@@ -32,7 +24,7 @@ class ProvinciaController extends Controller
      */
     public function create()
     {
-        //return view('painel.provincia');
+        //
     }
 
     /**
@@ -43,15 +35,7 @@ class ProvinciaController extends Controller
      */
     public function store(Request $request)
     {
-        $dataForm = $request->all();
-        $insert = $this->provincia->create($dataForm);
-
-
-        if($insert)
-            return redirect()->route('provincia.index');
-        else
-            return redirect()->back();
-
+        //
     }
 
     /**

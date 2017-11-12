@@ -15,13 +15,13 @@ class CreatePagamentosTable extends Migration
     {
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->increments('id');
-             $table->date('data_pagamento');
-             $table->integer('user_id')->references('id')->on('users');
-            $table->integer('idfaturas')->references('id')->on('faturas');
-            $table->boolean('status')->default(1);
+            $table->string('nr_comprovativo');
+            $table->date('data_pagamento');
             $table->string('tipo_pagamento');
             $table->double('valor');
-             $table->string('nr_comprovativo');
+            $table->integer('idfaturas')->references('id')->on('faturas');
+            $table->integer('user_id')->references('id')->on('users');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         
 
