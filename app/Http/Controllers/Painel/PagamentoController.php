@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Painel;
 
+use App\Models\Pagamentos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PagamentoController extends Controller
 {
+    private $pagamento;
+    public function __construct(Pagamentos $pagamento)
+    {
+        $this->pagamento=$pagamento;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,8 @@ class PagamentoController extends Controller
      */
     public function index()
     {
-        //
+        $pagamentos = $this->pagamento->all();
+        return view('painel.pagamentos', compact('pagamentos'));
     }
 
     /**
@@ -35,9 +43,9 @@ class PagamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pagamentos::create($request->all());
+        return redirect()->route('pagamentos.index')->with('message', 'Pagamentos efectuado com sucesso');
     }
-
     /**
      * Display the specified resource.
      *

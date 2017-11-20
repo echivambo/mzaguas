@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Painel;
 
+use App\Models\Distrito;
 use App\Models\Fontenaria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,8 +22,11 @@ class FontenariaController extends Controller
      */
     public function index()
     {
-        //
+        $fontenarias = $this->fontenaria->all();
+        $distritos = Distrito::all();
+        return view('painel.fontenaria', compact('fontenarias','distritos'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +35,11 @@ class FontenariaController extends Controller
      */
     public function create()
     {
-        return view('painel.regFontenaria');
+
+        $distritos = Distrito::all();
+        $empresa = DB::table('fontenarias')->where('id', Auth::id())->value('empresa_id');
+
+        return view('painel.regFontenaria', compact('empresa','distritos'));
     }
 
     /**
@@ -44,26 +52,13 @@ class FontenariaController extends Controller
     {
         $dataForm = $request->all();
         $insert = $this->fontenaria->create($dataForm);
-
         $last_id = $insert->id;
 
-        if($insert)
+        if (isset($_POST['primeira']))
             return redirect()->route('register', compact('last_id'));
-        else
-            return redirect()->back();
-    }
-
-    public function regPrimeira(Request $request)
-    {
-        $dataForm = $request->all();
-        $insert = $this->fontenaria->create($dataForm);
-
-        $last_id = $insert->id;
-
-        if($insert)
-            return redirect()->route('register', compact('last_id'));
-        else
-            return redirect()->back();
+        else {
+            return redirect()->route('fontenaria.index')->with('message', 'Fontária salva com sucesso');
+        }
     }
 
     /**

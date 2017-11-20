@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faturas extends Model
 {
-	  use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +13,7 @@ class Faturas extends Model
      * @var array
      */
     protected $fillable = [
-        'leitura','consumo_registado', 'valor_pagar', 'data_leitura', 'idusuario','contrato_id','taxa_id','multa'
+        'leitura','consumo_registado', 'valor_pagar', 'data_leitura', 'idusuario','contrato_id','multa'
     ];
 
     /**

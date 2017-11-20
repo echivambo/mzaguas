@@ -16,7 +16,7 @@ class CreateValorMultasTable extends Migration
         Schema::create('valor_multas', function (Blueprint $table) {
             $table->increments('id');
             $table->double('valor');
-            $table->string('descricao',100)->default('Null');
+            $table->string('descricao',255)->default('Null');
             $table->boolean('status')->default(1);
             $table->integer('user_id')->references('id')->on('users');
             $table->timestamps();

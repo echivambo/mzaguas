@@ -8,19 +8,12 @@ FOR EACH ROW BEGIN
 END//
 DELIMITER ;
 
- @if($errors->has())
-                  <ul class="alert alert-danger">
-                    @foreach($errors->all as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                  </ul>
-                @endif
 
 ------------------------------------------------------------------------------------
 ------------------------------------VENDAS VIEW----------------------------------
 --(`id`, `pagina`, `valor`, `header_id`, `user_id`, `Metodos_id`, `status`, `data_registo`)
 
-CREATE VIEW livro_regito_v AS
+CREATE VIEW fontenaria_V AS
 SELECT r.id as id, pagina, valor, m.metodo as metodo, data_registo, f.franquia as franquia, f.provincia as provincia, f.distrito as distrito, h.data_DQA as data_DQA,  
 h.data_inicio_periodo_sob_avaliacao as data_inicio, h.data_fim_periodo_sob_avaliacao as data_fim, u.nome as user
 FROM (((registo_por_pagina r join header h on r.header_id=h.id) join franquia f on h.franquia_id = f.id)

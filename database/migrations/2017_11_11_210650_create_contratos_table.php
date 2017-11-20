@@ -15,10 +15,10 @@ class CreateContratosTable extends Migration
     {
         Schema::create('contratos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nr_contrato',45);
-            $table->string('bairro',45);
-            $table->string('casa',45);
-            $table->string('rua',45);
+            $table->string('bairro',60);
+            $table->string('casa',30);
+            $table->string('rua',60);
+            $table->string('nome_cliente',60);
             $table->integer('cliente_id')->references('id')->on('clientes');
             $table->integer('user_id')->references('id')->on('users');
             $table->timestamps();

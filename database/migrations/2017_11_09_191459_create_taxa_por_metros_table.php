@@ -16,7 +16,7 @@ class CreateTaxaPorMetrosTable extends Migration
         Schema::create('taxa_por_metros', function (Blueprint $table) {
             $table->increments('id');
             $table->double('taxa');
-            $table->string('descricao',100)->default('Null');
+            $table->string('descricao',255)->default('Null');
             $table->boolean('status')->default(1);
             $table->integer('user_id')->references('id')->on('users');
             $table->timestamps();

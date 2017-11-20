@@ -54,6 +54,20 @@ class EmpresaController extends Controller
 
     }
 
+    public function regPrimeira(Request $request)
+    {
+        $dataForm = $request->all();
+        $insert = $this->empresa->create($dataForm);
+
+        $last_id = $insert->id;
+
+        if($insert)
+            return redirect()->route('fontenaria.create', compact('last_id'));
+        else
+            return redirect()->back();
+
+    }
+
     /**
      * Display the specified resource.
      *

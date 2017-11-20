@@ -5,7 +5,7 @@
 
         <div id="content-header">
             <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Painel</a> <a
-                        href="#">Parametrização</a> <a href="#">Dustito</a></div>
+                        href="#">Parametrização</a> <a href="#">Fronteira</a></div>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
@@ -19,11 +19,11 @@
                             <h5>Registar distritos</h5>
                         </div>
                         <div class="widget-content nopadding">
-                            <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('distrito.store')}}">
+                            <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('fontenaria.store')}}">
                                 {{ csrf_field() }}
 
                                 <!--Empresa ID-->
-                                <input type="hidden" name="empresa_id" value="">
+                                <input type="hidden" name="empresa_id" value="{{ $empresa_id }}">
 
                                 <div class="control-group">
                                     <label for="nome" class="control-label">Nome</label>
@@ -32,6 +32,19 @@
                                         <input id="nome" type="text" name="nome" value="{{ old('name') }}" required autofocus maxlength="45">
                                     </div>
                                 </div>
+
+                                    <div class="control-group">
+                                        <label for="distrito_id" class=" control-label">Distrito</label>
+
+                                        <div class="controls">
+                                            <select name="distrito_id" id="distrito_id" required class="span4">
+                                                <option>Selecione o Distrito</option>
+                                                @foreach($distritos as $distrito)
+                                                    <option value="{{$distrito->id}}">{{$distrito->nome}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
 
 
                         <div class="control-group">
@@ -84,22 +97,22 @@
                             <table class="table table-bordered data-table">
                                 <thead>
                                 <tr>
-                                    <th>Apelido</th>
                                     <th>Nome</th>
                                     <th>Endereço</th>
                                     <th>Tel</th>
                                     <th>email</th>
+                                    <th>Diatrito</th>
                                     <th>action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($fontenarias as $cli)
                                     <tr>
-                                        <td>{{$cli->apelido}}</td>
                                         <td>{{$cli->nome}}</td>
                                         <td>{{$cli->endereco}}</td>
-                                        <td>{{$cli->tel1}}</td>
+                                        <td>{{$cli->tel1}} & {{$cli->tel2}}</td>
                                         <td>{{$cli->email}}</td>
+                                        <td>{{$cli->distito_id}}</td>
                                         <td width="50">
                                             <a href="" class="actions edit text-warning"><i class="fa fa-pencil" aria-hidden="true"> edit</i></a>
                                         </td>

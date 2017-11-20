@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/painel', 'HomeController@index')->name('home');
+Route::get('/painel', 'HomeController@index')->name('painel');
 
 Route::resource('/empresa', 'Painel\EmpresaController');
 Route::resource('/fontenaria', 'Painel\FontenariaController');

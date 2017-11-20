@@ -8,10 +8,15 @@
                 <div class="panel-heading">Registar Fontenária</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('fontenaria.regPrimeira') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('fontenaria.store') }}">
                         {{ csrf_field() }}
+                            
+                        <!--Empresa ID-->
+                        <input type="hidden" name="empresa_id" value="<?php echo $_GET['last_id']; ?>">
 
-                        <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
+                        <input type="hidden" name="primeira" value="1">
+
+                        <div class="form-group">
                             <label for="nome" class="col-md-4 control-label">Nome</label>
 
                             <div class="col-md-6">
@@ -19,10 +24,21 @@
                             </div>
                         </div>
 
-                        <!--Empresa ID-->
-                        <input type="hidden" name="empresa_id" value="<?php echo $_GET['last_id']; ?>">
+                        <div class="form-group">
+                            <label for="distrito_id" class="col-md-4 control-label">Distrito</label>
 
-                        <div class="form-group{{ $errors->has('endereco') ? ' has-error' : '' }}">
+                            <div class="col-md-6">
+                                <select name="distrito_id" id="distrito_id" required class="form-control">
+                                    <option>Selecione o Distrito</option>
+                                    @foreach($distritos as $distrito)
+                                        <option value="{{$distrito->id}}">{{$distrito->nome}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="endereco" class="col-md-4 control-label">Endereço</label>
 
                             <div class="col-md-6">
@@ -30,7 +46,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('tel1') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="tel1" class="col-md-4 control-label">Tel1</label>
 
                             <div class="col-md-6">
@@ -38,7 +54,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('tel2') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="tel2" class="col-md-4 control-label">Tel2</label>
 
                             <div class="col-md-6">
@@ -46,7 +62,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group">
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">

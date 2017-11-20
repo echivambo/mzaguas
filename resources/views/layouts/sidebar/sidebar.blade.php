@@ -8,7 +8,7 @@
         <li><a href="{{route('pagamento.index')}}"><i class="icon icon-th"></i> <span>Pagamentos</span></a></li>
         <li class="submenu active"> <a href="#"><i class="icon icon-list"></i> <span>Parametrização</span> <span class="label label-important">3</span></a>
             <ul>
-                <li><a href="form-common.html">Fontenárias</a></li>
+                <li><a href="{{route('fontenaria.index')}}">Fontenárias</a></li>
                 <li><a href="{{route('distrito.index')}}">Distrito</a></li>
                 <li><a href="{{route('taxa.index')}}">Taxa por metro cúbico</a></li>
                 <li><a href="{{route('data-limite.index')}}">Data limite de pagamento</a></li>

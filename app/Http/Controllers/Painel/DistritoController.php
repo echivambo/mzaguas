@@ -45,7 +45,7 @@ class DistritoController extends Controller
      */
     public function store(DistritoRequest $request)
     {
-        distritoPorMetro::create($request->all());
+        Distrito::create($request->all());
         return redirect()->route('distrito.index')->with('message', 'Distrito salvo com sucesso');
     }
 

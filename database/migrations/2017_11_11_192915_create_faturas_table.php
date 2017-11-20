@@ -15,14 +15,13 @@ class CreateFaturasTable extends Migration
     {
         Schema::create('faturas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('leitura');
+            $table->float('leitura');
             $table->double('consumo_registado');
             $table->double('valor_pagar');
             $table->date('data_leitura');
             $table->date('data_limite');
             $table->integer('user_id')->references('id')->on('users');
             $table->integer('contrato_id')->references('id')->on('contratos');
-            $table->integer('taxa_id')->references('id')->on('taxa_por_metros');
             $table->double('multa');
             $table->boolean('status')->default(1);
             $table->timestamps();

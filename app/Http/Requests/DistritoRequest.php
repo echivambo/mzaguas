@@ -25,7 +25,7 @@ class DistritoRequest extends FormRequest
     {
         return [
             'nome'=>'required|min:3|max:60',
-            'provincia'=>'required|min:4|max:15',
+            'provincia'=>'required|min:4|max:30',
             'user_id'=>'required|integer|min:1'
         ];
     }

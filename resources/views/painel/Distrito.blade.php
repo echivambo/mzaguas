@@ -5,7 +5,7 @@
 
 <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Painel</a> <a
-                href="#">Parametrização</a> <a href="#">Dustito</a></div>
+                href="#">Parametrização</a> <a href="#">Distito</a></div>
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -27,10 +27,10 @@
 
 
                         <div class="control-group">
-                            <label for="provincia_id" class=" control-label">Provincia</label>
+                            <label for="provincia" class=" control-label">Provincia</label>
 
                             <div class="controls">
-                                <select name="provincia_id" id="provincia_id" required class="span4">
+                                <select name="provincia" id="provincia" required class="span4">
                                     <option>Selecione a provincia</option>
                                     @foreach($provincias as $provincia)
                                       <option value="{{$provincia}}">{{$provincia}}</option>
@@ -64,13 +64,15 @@
                     <table class="table table-bordered data-table">
                         <thead>
                         <tr>
-                            <th>Nome</th>
+                            <th>Provincia</th>
+                            <th>Distrito</th>
                             <th>action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($distritos as $ob)
                             <tr>
+                                <td>{{$ob->provincia}}</td>
                                 <td>{{$ob->nome}}</td>
                                 <td width="50">
                                     <a href="" class="actions edit text-warning"><i class="fa fa-pencil" aria-hidden="true"> edit</i></a>
