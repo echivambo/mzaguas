@@ -23,49 +23,63 @@
 
                             <!--User ID-->
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <!--Fontenaria ID-->
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->fontenaria_id }}">
+                            <!--Nome Do Cliente-->
+                            <input type="hidden" name="nome_cliente" id="nome_cliente">
 
                             <div class="control-group">
                                 <label for="cliente" class="control-label">Cliente</label>
 
                                 <div class="controls">
-                                    <select name="cliente_id" id="cliente" class="span4">
+                                    <select name="cliente_id" id="cliente_id" class="span4">
                                         <option>Selecione o cliente</option>
-                                        <option value=""></option>
+                                        @foreach($clientes as $cliente)
+                                            <option value="{{$cliente->id}}">{{$cliente->nome}} {{$cliente->apelido}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
 
                         <div class="control-group">
-                            <label for="nome" class=" control-label">Nome</label>
+                            <label for="tel1" class=" control-label">Bairro</label>
 
                             <div class="controls">
-                                <input id="nome" type="text" name="nome" value="{{ old('nome') }}" required maxlength="45">
+                                <input id="bairro" type="text" name="bairro" value="{{ old('bairro') }}" maxlength="60" required>
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label for="tel1" class=" control-label">Tel1</label>
+                            <label for="rua" class=" control-label">Rua</label>
 
                             <div class="controls">
-                                <input id="tel1" type="number" name="tel1" value="{{ old('tel1') }}" min="1" required>
+                                <input id="rua" type="text" name="rua" value="{{ old('rua') }}" maxlength="60">
                             </div>
                         </div>
 
                         <div class="control-group">
-                            <label for="tel2" class=" control-label">Tel2</label>
+                            <label for="casa" class=" control-label">Casa</label>
 
                             <div class="controls">
-                                <input id="tel2" type="number" name="tel2" value="{{ old('tel2') }}">
+                                <input id="casa" type="text" name="casa" value="{{ old('casa') }}" maxlength="20">
                             </div>
                         </div>
 
-                        <div class="control-group">
-                            <label for="email" class=" control-label">E-Mail</label>
+                            <div class="control-group">
+                                <label for="nr_contador" class=" control-label">Número do Contador</label>
 
-                            <div class="controls">
-                                <input id="email" type="email" name="email" value="{{ old('email') }}">
+                                <div class="controls">
+                                    <input id="nr_contador" type="text" name="nr_contador" value="{{ old('nr_contador') }}" required maxlength="20">
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="control-group">
+                                <label for="nr_contador" class=" control-label">Leitura Inicial</label>
+
+                                <div class="controls">
+                                    <input id="leitura_inicial" type="number" name="leitura_inicial" value="{{ old('leitura_inicial') }}" required min="0">
+                                </div>
+                            </div>
 
                             <div class="form-actions">
                                 <input id="next" class="btn btn-primary" type="submit" value="Registar" />
@@ -76,6 +90,8 @@
                 </div>
             </div>
 
+
+
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
                     <h5>Contratos</h5>
@@ -84,22 +100,22 @@
                     <table class="table table-bordered data-table">
                         <thead>
                         <tr>
-                            <th>Apelido</th>
-                            <th>Nome</th>
-                            <th>Endereço</th>
-                            <th>Tel</th>
-                            <th>email</th>
+                            <th>Cliente</th>
+                            <th>Bairro</th>
+                            <th>Rua</th>
+                            <th>Casa</th>
+                            <th>Número do contador</th>
                             <th>action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($contratos as $contrato)
                             <tr>
-                                <td>{{$contrato->apelido}}</td>
-                                <td>{{$contrato->nome}}</td>
-                                <td>{{$contrato->endereco}}</td>
-                                <td>{{$contrato->tel1}}</td>
-                                <td>{{$contrato->email}}</td>
+                                <td>{{$contrato->nome_cliente}}</td>
+                                <td>{{$contrato->bairro}}</td>
+                                <td>{{$contrato->rua}}</td>
+                                <td>{{$contrato->casa}}</td>
+                                <td>{{$contrato->nr_contador}}</td>
                                 <td width="50">
                                     <a href="" class="actions edit text-warning"><i class="fa fa-pencil" aria-hidden="true"> edit</i></a>
                                 </td>
@@ -114,4 +130,14 @@
     </div>
 </div>
 </div>
+
+<script>
+    $('#cliente_id').click(function () {
+        var nome_cliente = $('#cliente_id').find(":selected").text();
+        $('#nome_cliente').val(nome_cliente);
+        console.log(nome_cliente);
+        alert($('#nome_cliente').val());
+    })
+</script>
+
 @endsection

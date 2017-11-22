@@ -15,7 +15,7 @@
 
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-                    <h5>Registar Contrato</h5>
+                    <h5>Registar Facturas</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('contrato.store')}}">
@@ -25,45 +25,31 @@
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
                             <div class="control-group">
-                                <label for="cliente" class="control-label">Cliente</label>
+                                <label for="contrato_id" class="control-label">Cliente</label>
 
                                 <div class="controls">
-                                    <select name="cliente_id" id="cliente" class="span4">
+                                    <select name="contrato_id" id="contrato_id" class="span4">
                                         <option>Selecione o cliente</option>
-                                        <option value=""></option>
+                                        @foreach($clientes as $cliente)
+                                            <option value="{{$cliente->id}}">{{$cliente->nome_cliente}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
 
-                        <div class="control-group">
-                            <label for="nome" class=" control-label">Nome</label>
+                            <div class="control-group">
+                                <label for="leitura" class=" control-label">Leitura no contador</label>
 
-                            <div class="controls">
-                                <input id="nome" type="text" name="nome" value="{{ old('nome') }}" required maxlength="45">
+                                <div class="controls">
+                                    <input id="leitura" type="number" name="leitura" value="{{ old('leitura') }}" min="1" required placeholder="0">
+                                </div>
                             </div>
-                        </div>
 
                         <div class="control-group">
-                            <label for="tel1" class=" control-label">Tel1</label>
+                            <label for="data_leitura" class=" control-label">Data da Leitura</label>
 
                             <div class="controls">
-                                <input id="tel1" type="number" name="tel1" value="{{ old('tel1') }}" min="1" required>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="tel2" class=" control-label">Tel2</label>
-
-                            <div class="controls">
-                                <input id="tel2" type="number" name="tel2" value="{{ old('tel2') }}">
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="email" class=" control-label">E-Mail</label>
-
-                            <div class="controls">
-                                <input id="email" type="email" name="email" value="{{ old('email') }}">
+                                <input id="data_leitura" type="date" name="data_leitura" required data-date-format="DD-MMMM-YYYY" value="{{ old('data_leitura') }}" >
                             </div>
                         </div>
 
@@ -76,39 +62,6 @@
                 </div>
             </div>
 
-            <div class="widget-box">
-                <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                    <h5>Faturas</h5>
-                </div>
-                <div class="widget-content nopadding">
-                    <table class="table table-bordered data-table">
-                        <thead>
-                        <tr>
-                            <th>Apelido</th>
-                            <th>Nome</th>
-                            <th>Endereço</th>
-                            <th>Tel</th>
-                            <th>email</th>
-                            <th>action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($faturas as $fatura)
-                            <tr>
-                                <td>{{$fatura->apelido}}</td>
-                                <td>{{$fatura->nome}}</td>
-                                <td>{{$fatura->endereco}}</td>
-                                <td>{{$fatura->tel1}}</td>
-                                <td>{{$fatura->email}}</td>
-                                <td width="50">
-                                    <a href="" class="actions edit text-warning"><i class="fa fa-pencil" aria-hidden="true"> edit</i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
         </div>
     </div>

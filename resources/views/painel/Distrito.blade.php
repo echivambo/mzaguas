@@ -16,7 +16,7 @@
 
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-                    <h5>Registar distritos</h5>
+                    <h5>Registar Distrito</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('distrito.store')}}">
@@ -58,7 +58,7 @@
 
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                    <h5>Lista de Clientes</h5>
+                    <h5>Lista de Distritos</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <table class="table table-bordered data-table">

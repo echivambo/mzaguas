@@ -5,7 +5,7 @@
 
         <div id="content-header">
             <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Painel</a> <a
-                        href="#">Parametrização</a> <a href="#">Fronteira</a></div>
+                        href="#">Parametrização</a> <a href="#">Fontenária</a></div>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
@@ -16,14 +16,11 @@
 
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-                            <h5>Registar distritos</h5>
+                            <h5>Registar Fontenária</h5>
                         </div>
                         <div class="widget-content nopadding">
                             <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('fontenaria.store')}}">
                                 {{ csrf_field() }}
-
-                                <!--Empresa ID-->
-                                <input type="hidden" name="empresa_id" value="{{ $empresa_id }}">
 
                                 <div class="control-group">
                                     <label for="nome" class="control-label">Nome</label>
@@ -91,7 +88,7 @@
             </div>
                     <div class="widget-box">
                         <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-                            <h5>Lista de Clientes</h5>
+                            <h5>Lista de Fontenárias</h5>
                         </div>
                         <div class="widget-content nopadding">
                             <table class="table table-bordered data-table">

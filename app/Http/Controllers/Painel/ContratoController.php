@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use App\Models\Contrato;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ContratoController extends Controller
 {
@@ -21,8 +22,9 @@ class ContratoController extends Controller
      */
     public function index()
     {
+        $clientes = DB::table('clientes')->select('id', 'nome', 'apelido')->get();
         $contratos = $this->contrato->all();
-        return view('painel.contrato', compact('contratos'));
+        return view('painel.contrato', compact('contratos','clientes'));
     }
 
     /**

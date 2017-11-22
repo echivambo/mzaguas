@@ -13,6 +13,6 @@
     <link rel="stylesheet" href="{{ asset('matrixAdmin/css/bootstrap-wysihtml5.css') }}" />
     <link rel="stylesheet" href="{{ asset('matrixAdmin/font-awesome/css/font-awesome.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-    <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
-    <script src="{{ asset('matrixAdmin/js/matrix.form_common.js') }}"></script>
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 </head>
