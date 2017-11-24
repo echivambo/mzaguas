@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -31,3 +31,5 @@ Route::resource('/painel/pagamento', 'Painel\PagamentoController');
 Route::resource('/painel/data-limite', 'Painel\DataLimiteController');
 Route::resource('/painel/valor-multa', 'Painel\ValorMultaController');
 Route::resource('/painel/user', 'Painel\userController');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

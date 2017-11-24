@@ -24,6 +24,7 @@ class CreateFaturasTable extends Migration
             $table->integer('contrato_id')->references('id')->on('contratos');
             $table->double('multa');
             $table->boolean('status')->default(1);
+            $table->boolean('estado_pagamento')->default(0);
             $table->timestamps();
 
 

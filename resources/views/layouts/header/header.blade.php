@@ -6,9 +6,7 @@
                 <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                 <li class="divider"></li>
                 <li class="divider"></li>
-                <li><a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                       document.getElementById('logout-form').submit();">
+                <li><a href="{{ route('logout') }}">
                     <i class="icon-key"></i> Log Out</a></li>
             </ul>
         </li>

@@ -74,10 +74,18 @@
                             </div>
 
                             <div class="control-group">
-                                <label for="nr_contador" class=" control-label">Leitura Inicial</label>
+                                <label for="leitura_inicial" class=" control-label">Leitura Inicial</label>
 
                                 <div class="controls">
                                     <input id="leitura_inicial" type="number" name="leitura_inicial" value="{{ old('leitura_inicial') }}" required min="0">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="data" class=" control-label">Data de Abertura do Contrato</label>
+
+                                <div class="controls">
+                                    <input id="data" type="date" name="data" value="{{ old('data') }}" required min="0">
                                 </div>
                             </div>
 
@@ -136,7 +144,7 @@
         var nome_cliente = $('#cliente_id').find(":selected").text();
         $('#nome_cliente').val(nome_cliente);
         console.log(nome_cliente);
-        alert($('#nome_cliente').val());
+        //alert($('#nome_cliente').val());
     })
 </script>
 
