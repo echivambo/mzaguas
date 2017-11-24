@@ -17,5 +17,13 @@ class UserTableSeeder extends Seeder
             'fontenaria_id' => 1,
             'password' => bcrypt('002523'),
         ]);
+
+
+         DB::table('users')->insert([
+            'name' => 'Osvaldo Ricardo',
+            'email' => 'osvaldo.machava95@gmail.com',
+            'fontenaria_id' => 1,
+            'password' => bcrypt('002525'),
+        ]);
     }
 }

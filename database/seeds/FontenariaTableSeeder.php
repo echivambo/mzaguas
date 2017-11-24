@@ -12,6 +12,7 @@ class FontenariaTableSeeder extends Seeder
     public function run()
     {
         DB::table('fontenarias')->insert([
+            'id'=>1
             'nome' => 'Aguas da vida',
             'email' => 'avida@gmail.com',
             'endereco' => 'Bairro T3, Rua das Maotas 215',

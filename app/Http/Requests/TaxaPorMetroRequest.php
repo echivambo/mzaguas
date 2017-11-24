@@ -24,8 +24,8 @@ class TaxaPorMetroRequest extends FormRequest
     public function rules()
     {
         return [
-            'taxa'=>'required',
-            'descricao'=>'max:100',
+            'taxa'=>'required|min:1'
+            'descricao'
         ];
     }
 }
