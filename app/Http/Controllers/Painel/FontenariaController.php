@@ -37,9 +37,8 @@ class FontenariaController extends Controller
     {
 
         $distritos = Distrito::all();
-        $empresa = DB::table('fontenarias')->where('id', Auth::id())->value('empresa_id');
 
-        return view('painel.regFontenaria', compact('empresa','distritos'));
+        return view('painel.regFontenaria', compact('distritos'));
     }
 
     /**

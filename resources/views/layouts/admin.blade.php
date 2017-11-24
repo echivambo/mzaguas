@@ -24,6 +24,8 @@
     <div id="footer" class="span12"> 2017 &copy; MZ Aguas. By <a href="edsonchivambo@gmail.com">Edson Chivambo</a> </div>
 </div>
 <!--end-Footer-part-->
+<!-- Scripts -->
+<script src="{{ asset('matrixAdmin/js/matrix.form_common.js') }}"></script>
 <script src="{{ asset('matrixAdmin/js/jquery.min.js') }}"></script>
 <script src="{{ asset('matrixAdmin/js/jquery.ui.custom.js') }}"></script>
 <script src="{{ asset('matrixAdmin/js/bootstrap.min.js') }}"></script>

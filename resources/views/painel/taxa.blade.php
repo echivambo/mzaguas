@@ -38,7 +38,7 @@
                                 <label for="taxa" class="control-label">Taxa por metro cúbico</label>
 
                                 <div class="controls">
-                                    <textarea name="descricao" id="descricao" class="input" rows="5"></textarea>
+                                    <textarea name="descricao" id="descricao" class="input span6" rows="5"></textarea>
                                 </div>
                             </div>
 
@@ -58,14 +58,3 @@
 </div>
 </div>
 @endsection
-<script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
-<script>
-    $('#novo').click(function () {
-        $('#taxa').val('');
-        $('#taxa').enable();
-    })
-    $('.input').click(function () {
-        alert('ok');
-        $('#taxa').val('');
-    })
-</script>

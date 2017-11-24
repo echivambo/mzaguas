@@ -16,7 +16,7 @@
 
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-                    <h5>Registar distritos</h5>
+                    <h5>Registar Valor da Multa</h5>
                 </div>
                 <div class="widget-content nopadding">
                     <form id="form-wizard" class="form-horizontal" method="POST" action="{{ route('distrito.store')}}">
@@ -31,6 +31,14 @@
 
                             <div class="controls">
                                 <input id="valor" type="number" name="valor" value="{{ old('valor') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="control-group {{ $errors->has('descricao') ? ' has-error' : '' }}">
+                            <label for="taxa" class="control-label">Taxa por metro cúbico</label>
+
+                            <div class="controls">
+                                <textarea name="descricao" id="descricao" class="input span6" rows="5"></textarea>
                             </div>
                         </div>
 

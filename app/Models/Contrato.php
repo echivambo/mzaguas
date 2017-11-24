@@ -12,7 +12,7 @@ class Contrato extends Model
      * @var array
      */
     protected $fillable = [
-        'bairro','rua','casa', 'nr_contador', 'cliente_id', 'user_id'
+        'bairro','rua','casa', 'nr_contador', 'cliente_id', 'user_id', 'nome_cliente','leitura_inicial', 'data'
     ];
 
     /**

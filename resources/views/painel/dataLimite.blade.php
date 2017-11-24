@@ -5,7 +5,7 @@
 
 <div id="content-header">
     <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Painel</a> <a
-                href="#">Parametrização</a> <a href="#">Taixa por metro cúbico</a></div>
+                href="#">Parametrização</a> <a href="#">Data Limite de Pagamento</a></div>
 </div>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -16,7 +16,7 @@
 
             <div class="widget-box">
                 <div class="widget-title"> <span class="icon"> <i class="icon-pencil"></i> </span>
-                    <h5>Adicionar taixa por metro cúbico</h5>
+                    <h5>Adicionar Último dia de Pagamento</h5>
                 </div>
 
                 <div class="widget-content nopadding">
@@ -58,14 +58,3 @@
 </div>
 </div>
 @endsection
-<script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
-<script>
-    $('#novo').click(function () {
-        $('#taxa').val('');
-        $('#taxa').enable();
-    })
-    $('.input').click(function () {
-        alert('ok');
-        $('#taxa').val('');
-    })
-</script>

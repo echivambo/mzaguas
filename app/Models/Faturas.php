@@ -13,7 +13,8 @@ class Faturas extends Model
      * @var array
      */
     protected $fillable = [
-        'leitura','consumo_registado', 'valor_pagar', 'data_leitura', 'idusuario','contrato_id','multa'
+        'leitura', 'data_leitura', 'user_id','contrato_id'
+        //'leitura','consumo_registado', 'valor_pagar', 'data_leitura', 'idusuario','contrato_id','multa'
     ];
 
     /**

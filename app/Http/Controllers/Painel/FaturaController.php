@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use App\Models\Faturas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class FaturaController extends Controller
 {
@@ -21,8 +22,9 @@ class FaturaController extends Controller
      */
     public function index()
     {
+        $clientes = DB::table('contratos')->select('id','nome_cliente')->get();
         $faturas = $this->fatura->all();
-        return view('painel.faturas', compact('faturas'));
+        return view('painel.faturas', compact('faturas', 'clientes'));
     }
 
     /**

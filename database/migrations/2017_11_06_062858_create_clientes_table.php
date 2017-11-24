@@ -19,7 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('nome',45);
             $table->string('email',45)->unique();
             $table->string('tel1',15);
-            $table->string('tel2',15);
+            $table->string('tel2',15)->default(null);
             $table->double('saldo')->default(0);
             $table->boolean('status')->default(1);
             $table->integer('user_id')->references('id')->on('users');
